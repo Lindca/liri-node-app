@@ -12,13 +12,13 @@ You need node installed on your computer.
 You should be able to run my program just by downloading the files given.
 
 ## Built With:
-node.js - for executing JavaScript code server-side
-*Jquery - The js framework used
-*Axios - Axios is a promise based HTTP request library
-*moment.js - js framework to manipulate dates and time
-*Spotify - one of the API's used to populate music
-*Bandsintown - one of the API's used to populate concerts
-*OMDB - one of the API's used to populate movie data
+* node.js - for executing JavaScript code server-side
+* Jquery - The js framework used
+* Axios - Axios is a promise based HTTP request library
+* moment.js - js framework to manipulate dates and time
+* Spotify - one of the API's used to populate music
+* Bandsintown - one of the API's used to populate concerts
+* OMDB - one of the API's used to populate movie data
 
 ## Authors:
 Lindsay Campbell - All content - Freelance Developer
