@@ -24,9 +24,13 @@ node.js - for executing JavaScript code server-side
 Lindsay Campbell - All content - Freelance Developer
 
 ## Images:
+### spotify-this-song
 ![spotify-this-song](/images/spotify.png)
+### concert-this
 ![concert-this](/images/concert.png)
+### movie-this
 ![movie-this](/images/movie.png)
+### do-what-it-says
 ![do-what-it-says](/images/dowhat.png)
 
 
