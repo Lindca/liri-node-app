@@ -1,7 +1,8 @@
 
 var axios = require("axios");
 var app = process.argv;
-var searchCriteria = encodeURI(app[3]);
+var keyword=process.argv.slice(3).join(" ");
+var keywordEncoded = encodeURI(keyword);
 var moment = require('moment');
 require("dotenv").config();
 var fs = require("fs");
@@ -10,13 +11,13 @@ var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 
 if (app[2] === "spotify-this-song") {
-    searchSpotify(searchCriteria);
+    searchSpotify(keywordEncoded);
 }
 else if (app[2] === "concert-this") {
-    searchConcert(searchCriteria);
+    searchConcert(keywordEncoded);
 }
 else if (app[2] === "movie-this") {
-    searchMovies(searchCriteria);
+    searchMovies(keywordEncoded);
 }
 else if (app[2] === "do-what-it-says") {
     readLog();
@@ -40,8 +41,8 @@ function readLog() {
 
     })
 }
-function searchConcert(searchCriteria) {
-    axios.get("https://rest.bandsintown.com/artists/" + searchCriteria + "/events?app_id=codingbootcamp").then(
+function searchConcert(keywordEncoded) {
+    axios.get("https://rest.bandsintown.com/artists/" + keywordEncoded + "/events?app_id=codingbootcamp").then(
         function (response) {
             var venues = response.data;
             // console.log(response.data);
@@ -53,8 +54,8 @@ function searchConcert(searchCriteria) {
         }
     );
 }
-function searchMovies(searchCriteria = "Mr. Nobody") {
-    axios.get("http://www.omdbapi.com/?t=" + searchCriteria + "&y=&plot=short&apikey=trilogy").then(
+function searchMovies(keywordEncoded = "Mr. Nobody") {
+    axios.get("http://www.omdbapi.com/?t=" + keywordEncoded + "&y=&plot=short&apikey=trilogy").then(
         function (response) {
             var movie = response.data;
             console.log("Title: " + movie.Title);
@@ -68,8 +69,8 @@ function searchMovies(searchCriteria = "Mr. Nobody") {
         }
     );
 }
-function searchSpotify(searchCriteria = "The Sign") {
-    spotify.search({ type: 'track', query: searchCriteria }, function (err, data) {
+function searchSpotify(keywordEncoded = "The Sign") {
+    spotify.search({ type: 'track', query: keywordEncoded }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         } else {
